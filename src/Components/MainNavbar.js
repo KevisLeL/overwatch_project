@@ -1,41 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../Shared/context/auth-context';
+import {Link} from 'react-router-dom';
 
+const MainHeader = (props) => {
 
-const MainHeader = () => {
-
-const showLogin = () => {
-  if (isLoggedIn) {
-    return (
-    <Link type="button" class="btn btn-light" to="/">
-      LOG OUT
-    </Link>
-    )
-  } else {
-    return (
-    <Link type="button" class="btn btn-light" to="/">
-      LOGIN
-    </Link>
-    );
-  }
-  
-};
-
-    return (
+  console.log(props);
+  return (
       <React.Fragment>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <Link class="navbar-brand" to="/">
             Overwatch matches
           </Link>
           <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -48,13 +30,15 @@ const showLogin = () => {
                 </a>
               </li>
             </ul>
-            {showLogin}
+            <Link type="button" class="btn btn-light" to="/">
+              LOG OUT
+            </Link>
           </div>
         </nav>
 
 
-</React.Fragment>
-    );
+      </React.Fragment>
+  );
 };
 
 export default MainHeader;

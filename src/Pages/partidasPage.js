@@ -1,63 +1,38 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 
 import PartidasList from '../Components/PartidaList';
+import DATA from "../data";
 
-const PARTIDAS = [
-    {
-        id: 'Partida 1',
-        date: '20/03/2020',
-        map: 'Junkertown',
-        role: 'Support',
-        player: 'Moira',
-        damage: 7500,
-        heal: 13750,
-        kills: 21,
-        creator: 'u1'
+const PartidasPage = (props) => {
 
-    },
-    {
-        id: 'Partida 2',
-        date: '21/03/2020',
-        map: 'Habana',
-        role: 'DPS',
-        player: 'Junkrat',
-        damage: 17500,
-        heal: 0,
-        kills: 43,
-        creator: 'u1'
+  const readUser = (alias) => {
+    const result = DATA.filter(user => {
+      return user.alias === alias;
+    });
+    // console.log('Despues del filtro tenemos un array');
+    // console.log(result);
+    // console.log('Solo nos importa el primero');
+    // console.log(result[0]);
+    return result[0];
+  };
 
-    },
-    {
-        id: 'Partida 1',
-        date: '23/03/2020',
-        map: 'Ilios',
-        role: 'Tank',
-        player: 'Roadhog',
-        damage: 12300,
-        heal: 6350,
-        kills: 28,
-        creator: 'u2'
+  const userCelada = readUser('Celada182');
 
-    },{
-        id: 'Partida 2',
-        date: '24/03/2020',
-        map: 'Estación Lunar',
-        role: 'Support',
-        player: 'Baptiste',
-        damage: 5300,
-        heal: 16350,
-        kills: 12,
-        creator: 'u2'
-    }
-]
-const PartidasPage = () => {
-    
-    const userId = useParams().userId;
-    const partidaMostrada = PARTIDAS.filter(partida => partida.creator === userId);
+  // const todasPartidas = [];
+  // for (let index = 0; index < userCelada.partidas.length; index++) {
+  //   console.log(userCelada.partidas[index]);
+  // }
 
-    return <PartidasList items={partidaMostrada}/>
-    
+  // userCelada.partidas.forEach((match) => {
+  //   todasPartidas.push(match);
+  // });
+  //
+  // userKevis.partidas.forEach(match => todasPartidas.push(match));
+
+  const user = props.location.state.user;
+
+  return <PartidasList items={user.partidas}/>
+
 };
 
 export default PartidasPage;
