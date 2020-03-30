@@ -5,11 +5,10 @@ import DATA from "../data";
 
 const Login = props => {
 
-  //const [isLoginMode, setIsLoginMode] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  let userLogged = null;
+  let loggedUser = null;
 
   const validateForm = () => {
     return (
@@ -20,23 +19,20 @@ const Login = props => {
   const findUser = function readData(email, password) {
     DATA.forEach(user => {
       if (user.email === email && user.password === password) {
-        console.log('Login correcto');
-        console.log(user);
-        userLogged = user;
+        loggedUser = user;
+        props.loginUser(user);
       }
     });
   };
 
   const authSubmitHandler = event => {
     event.preventDefault();
-    console.log(email);
-    console.log(password);
     findUser(email, password);
-    if (userLogged != null) {
-      console.log(props.history);
+    console.log(loggedUser);
+    if (loggedUser != null) {
       props.history.push({
         pathname: '/partidas',
-        state: {user: userLogged}
+        state: {user: loggedUser}
       });
     } else {
       alert('Eres subnormal');

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter, Route, Router, Switch} from "react-router-dom";
 
 import CreateUser from './Pages/create-user';
@@ -8,14 +8,17 @@ import MainNavbar from './Components/MainNavbar';
 import PartidasInfo from './Pages/PartidasInfo';
 import './App.css';
 
-const App = (props) => {
+const App = () => {
+
+  const [loggedUser, setLoggedUser] = useState(null);
 
   return (
       <React.Fragment>
         <BrowserRouter>
-          <MainNavbar/>
+          <MainNavbar isUserLogged={loggedUser != null}/>
           <Switch>
-            <Route path="/" exact component={Login}/>
+            <Route path="/" exact component={routerProps =>
+                <Login loginUser={setLoggedUser} {...routerProps}/>}/>
             <Route path="/partidas" exact component={PartidasPage}></Route>
             <Route path="/partidas/:partidaId" exact
                    component={PartidasInfo}></Route>
