@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 
 const MainHeader = (props) => {
 
-  console.log(props);
   return (
       <React.Fragment>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

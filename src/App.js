@@ -6,6 +6,7 @@ import Login from './Pages/login';
 import PartidasPage from './Pages/partidasPage';
 import MainNavbar from './Components/MainNavbar';
 import PartidasInfo from './Pages/PartidasInfo';
+import Pruebas from './Components/Pruebas';
 import './App.css';
 
 const App = (props) => {
@@ -20,6 +21,7 @@ const App = (props) => {
             <Route path="/partidas/:partidaId" exact
                    component={PartidasInfo}></Route>
             <Route path="/create-user" component={CreateUser}></Route>
+            <Route path="/pruebas" exact component={Pruebas}/>
           </Switch>
         </BrowserRouter>
       </React.Fragment>

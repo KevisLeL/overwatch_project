@@ -61,32 +61,32 @@ let DATA = [
   },
   {
     id: "u3",
-    name: "Javier Celada",
-    alias: "Celada182",
-    email: "celada182@gmail.com",
-    password: "182182182",
+    name: "Josete Fernandez",
+    alias: "Skraf",
+    email: "skraf@gmail.com",
+    password: "147258369",
     partidas: [
       {
-        id: "P-Cel1",
+        id: "P-SK1",
         date: "23/03/2020",
-        map: "Ilios",
-        role: "Tank",
-        player: "Roadhog",
-        damage: 12300,
-        heal: 6350,
-        kills: 28,
-        creator: "u2"
+        map: "Hanamura",
+        role: "DPS",
+        player: "Tracer",
+        damage: 18300,
+        heal: 350,
+        kills: 41,
+        creator: "u3"
       },
       {
-        id: "P-Cel2",
+        id: "P-SK2",
         date: "24/03/2020",
         map: "Estación Lunar",
-        role: "Support",
-        player: "Baptiste",
-        damage: 5300,
-        heal: 16350,
-        kills: 12,
-        creator: "u2"
+        role: "Tank",
+        player: "Wrecking Ball",
+        damage: 15300,
+        heal: 1350,
+        kills: 16,
+        creator: "u3"
       }
     ]
   }
